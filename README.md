@@ -1,109 +1,89 @@
-# 🧾 ABAP – Relatório de Clientes / Fornecedores com Exportação TXT e ALV
-Este projeto apresenta um relatório ABAP que permite consultar clientes, fornecedores ou ambos, aplicar filtros dinâmicos, formatar CPF/CNPJ, exibir resultados em ALV e exportar os dados para arquivo TXT.
+# ABAP – Relatório de Clientes / Fornecedores com Exportação TXT e ALV
 
-📦 Funcionalidades
-🔍 Consultas Disponíveis
+Este projeto apresenta um relatório ABAP que permite consultar **clientes**, **fornecedores** ou **ambos**, aplicar filtros dinâmicos, formatar CPF/CNPJ, exibir resultados em ALV e exportar os dados para arquivo TXT.
 
+---
+
+## Funcionalidades
+
+### Consultas Disponíveis
 O relatório permite três modos de execução:
 
-Clientes (KNA1)
+- Clientes (KNA1)
+- Fornecedores (LFA1)
+- Ambos (Clientes + Fornecedores)
 
-Fornecedores (LFA1)
+### Filtros Disponíveis
+- Número do cliente (KUNNR)
+- Número do fornecedor (LIFNR)
+- País (LAND1)
+- Região (REGIO)
+- Faixa genérica via SELECT-OPTIONS
 
-Ambos (Clientes + Fornecedores)
+### Processamento de Dados
+- Mescla de dados de clientes e fornecedores em uma mesma estrutura
+- Identificação do tipo: **CLIENTE** ou **FORNECEDOR**
+- Formatação automática de:
+  - CPF → 999.999.999-99
+  - CNPJ → 99.999.999/9999-99
+- Preenchimento padrão quando o campo estiver vazio
 
-🎚️ Filtros Disponíveis
+### Exportação
+- Exportação para arquivo **TXT**
+- Seleção de diretório via `cl_gui_frontend_services=>file_save_dialog`
+- Download utilizando a função `GUI_DOWNLOAD` (ASCII)
 
-Número do cliente (KUNNR)
+### Exibição ALV
+Usando a classe `CL_SALV_TABLE`:
 
-Número do fornecedor (LIFNR)
+- Ocultação de campos técnicos
+- Ajuste automático de colunas
+- Layout zebrado
+- Funções padrão habilitadas
+- Textos de coluna personalizados quando exibindo ambos
 
-País (LAND1)
+---
 
-Região (REGIO)
+## Conceitos ABAP Utilizados
 
-Faixa genérica para ambos (SELECT-OPTIONS)
+- Manipulação de tabelas internas
+- Estruturas do tipo `TYPES`
+- Organização do código em FORM routines
+- Uso de SELECT-OPTIONS com ativação dinâmica via `MODIF ID`
+- Controle da tela com loops em `SCREEN`
+- Concatenação e formatação de strings
+- Classes:
+  - `CL_SALV_TABLE`
+  - `CL_GUI_FRONTEND_SERVICES`
+- Exportação com `GUI_DOWNLOAD`
+- Ordenação, contagem e mensagens dinâmicas
 
-🏗️ Processamento de Dados
+---
 
-Mescla de dados de clientes e fornecedores em uma única estrutura
+## Estrutura Geral do Programa
 
-Classificação do tipo: CLIENTE ou FORNECEDOR
+| Rotina        | Descrição |
+|---------------|-----------|
+| `SELECT_DATA` | Carrega os dados conforme o modo escolhido |
+| `PROCESS_DATA` | Formata dados fiscais e monta mensagens |
+| `BUILD_FILE` | Gera o arquivo TXT |
+| `OUTPUT` | Exibe o ALV |
 
-Formatação automática:
+---
 
-CPF → 999.999.999-99
+## Objetivo
 
-CNPJ → 99.999.999/9999-99
+Este projeto tem como objetivo demonstrar:
 
-Preenchimento padrão para valores vazios
+- Consultas dinâmicas em KNA1 e LFA1  
+- Técnicas de formatação de CPF e CNPJ  
+- Manipulação da tela de seleção com radiobuttons  
+- Exibição estruturada via ALV  
+- Exportação de dados para arquivos TXT  
+- Boas práticas em relatórios ABAP
 
-📤 Exportação
+---
 
-Exportação para arquivo TXT
+## Autor
 
-Seleção do diretório via cl_gui_frontend_services=>file_save_dialog
-
-Download usando GUI_DOWNLOAD (modo ASCII)
-
-📊 Exibição ALV
-
-Utilizando a classe CL_SALV_TABLE:
-
-Ocultação de campos técnicos
-
-Ajuste automático de colunas
-
-Layout zebrado
-
-Funções padrão habilitadas
-
-Textos de colunas personalizados no modo "Ambos"
-
-🧱 Conceitos ABAP Utilizados
-
-Manipulação de tabelas internas e estruturas customizadas
-
-Organização do código em FORMs
-
-Uso de SELECT-OPTIONS com ativação dinâmica via MODIF ID
-
-Manipulação de SCREEN usando radiobuttons
-
-Concatenação e formatação de strings
-
-Classes utilizadas:
-
-CL_SALV_TABLE (ALV)
-
-CL_GUI_FRONTEND_SERVICES (file dialog)
-
-Função GUI_DOWNLOAD para geração do TXT
-
-Ordenação, contagem e mensagens dinâmicas
-
-📁 Estrutura Geral do Programa
-Rotina	Descrição
-SELECT_DATA	Realiza as leituras conforme o modo selecionado
-PROCESS_DATA	Formata CPF/CNPJ e monta mensagens
-BUILD_FILE	Gera o arquivo TXT no diretório selecionado
-OUTPUT	Exibe o ALV com layout configurado
-🎯 Objetivo
-
-Este projeto tem como objetivos principais:
-
-Praticar consultas dinâmicas em KNA1 e LFA1
-
-Demonstrar técnicas de manipulação e formatação de dados fiscais
-
-Aplicar lógica condicional na tela de seleção com radiobuttons + MODIF ID
-
-Exibir resultados via ALV com layout profissional
-
-Realizar exportação para arquivos TXT no frontend
-
-Consolidar boas práticas na criação de relatórios ABAP
-
-👨‍💻 Autor
-
-Murilo Valentim
+**Murilo Valentim**
