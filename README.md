@@ -18,7 +18,6 @@ O relatório permite três modos de execução:
 - Número do fornecedor (LIFNR)
 - País (LAND1)
 - Região (REGIO)
-- Faixa genérica via SELECT-OPTIONS
 
 ### Processamento de Dados
 - Mescla de dados de clientes e fornecedores em uma mesma estrutura
@@ -31,32 +30,23 @@ O relatório permite três modos de execução:
 ### Exportação
 - Exportação para arquivo **TXT**
 - Seleção de diretório via `cl_gui_frontend_services=>file_save_dialog`
-- Download utilizando a função `GUI_DOWNLOAD` (ASCII)
+- Download utilizando a função `GUI_DOWNLOAD`
 
 ### Exibição ALV
 Usando a classe `CL_SALV_TABLE`:
-
-- Ocultação de campos técnicos
-- Ajuste automático de colunas
-- Layout zebrado
-- Funções padrão habilitadas
-- Textos de coluna personalizados quando exibindo ambos
 
 ---
 
 ## Conceitos ABAP Utilizados
 
 - Manipulação de tabelas internas
-- Estruturas do tipo `TYPES`
 - Organização do código em FORM routines
 - Uso de SELECT-OPTIONS com ativação dinâmica via `MODIF ID`
 - Controle da tela com loops em `SCREEN`
-- Concatenação e formatação de strings
 - Classes:
   - `CL_SALV_TABLE`
   - `CL_GUI_FRONTEND_SERVICES`
 - Exportação com `GUI_DOWNLOAD`
-- Ordenação, contagem e mensagens dinâmicas
 
 ---
 
