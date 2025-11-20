@@ -48,8 +48,7 @@ Usando a classe `CL_SALV_TABLE`:
   - `CL_GUI_FRONTEND_SERVICES`
 - Exportação com `GUI_DOWNLOAD`
 
----
-
+<!-----
 ## Estrutura Geral do Programa
 
 | Rotina        | Descrição |
@@ -58,7 +57,7 @@ Usando a classe `CL_SALV_TABLE`:
 | `PROCESS_DATA` | Formata dados fiscais e monta mensagens |
 | `BUILD_FILE` | Gera o arquivo TXT |
 | `OUTPUT` | Exibe o ALV |
-
+-->
 ---
 
 ## Objetivo
