@@ -33,7 +33,7 @@ O relatório permite três modos de execução:
 - Download utilizando a função `GUI_DOWNLOAD`
 
 ### Exibição ALV
-Usando a classe `CL_SALV_TABLE`:
+Usando a classe `CL_SALV_TABLE`
 
 ---
 
